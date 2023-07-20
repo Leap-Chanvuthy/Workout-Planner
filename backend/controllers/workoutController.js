@@ -28,19 +28,15 @@ module.exports.getWorkout = async ( req , res) =>{
 
 // post a new workout
 module.exports.createWorkout =  async (req , res)  => {
-    const {title , load , reps} = req.body;
-    try {
-        const workout = await Workout.create ({
-            title,
-            load,
-            reps
-        });
-        res.status (200).json (workout);
-        console.log (req.body);
-    }
-    catch (error){
-        res.status(404).json ({erorr : error.message});
-    }
+    const {title, load, reps} = req.body
+
+  // add to the database
+  try {
+    const workout = await Workout.create({ title, load, reps })
+    res.status(200).json(workout)
+  } catch (error) {
+    res.status(400).json({ error: error.message })
+  }
 }
 
 
