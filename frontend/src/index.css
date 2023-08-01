@@ -35,9 +35,19 @@ header a {
 /* homepage */
 .home {
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: repeat(2 , 1fr);
   gap: 100px;
 }
+
+@media (max-width: 600px) {
+  /* This CSS will only be applied to screens with a width of 600px or less */
+  .home {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 50px;
+  }
+}
+
 .workout-details {
   background: #fff;
   border-radius: 4px;
@@ -61,10 +71,10 @@ header a {
   top: 20px;
   right: 20px;
   cursor: pointer;
-  /* background: #f1f1f1; */
+  background: #f1f1f1;
   padding: 6px;
-  /* border-radius: 50%; */
-  color: rgb(191, 73, 73);
+  border-radius: 50%;
+  color: #333;
 }
 
 /* new workout form */
@@ -97,7 +107,6 @@ div.error {
   border-radius: 4px;
   margin: 20px 0;
 }
-
 input.error {
   border: 1px solid var(--error);
 }
@@ -110,6 +119,17 @@ nav {
 nav a {
   margin-left: 10px;
 }
+nav button {
+  background: #fff;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-family: "Poppins";
+  cursor: pointer;
+  font-size: 1em;
+}
+
 /* auth forms */
 form.signup, form.login {
   max-width: 400px;
